@@ -10,13 +10,31 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    private var coordinator: AppCoordinator?
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+        //Crear una escena apartir de la ventana que se está instanciando
+        guard let windowScene = (scene as? UIWindowScene) else {return }
+        
+        //Crear navigationController --> componente gráfico que permite navegar entre pantallas
+        let window = UIWindow(windowScene: windowScene)
+        let navigationController = UINavigationController()//aquí ya tiene embebida la vista
+        
+        //Se crea el coordinator porque la navegación se está implementando mediante código
+        let coordinator = AppCoordinator(navigationController: navigationController,
+                                         factory: AppDIContainer())
+        
+        coordinator.start()
+        
+        window.rootViewController = navigationController//Se declara al contenedor como el principal para la navegación. Dentro de este se van agregando o quitando pantallas
+        window.makeKeyAndVisible()//La hace visible
+        
+        self.window = window
+        self.coordinator = coordinator
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
