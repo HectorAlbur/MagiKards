@@ -18,8 +18,17 @@ final class AppCoordinator {
     
     //Instancia la vista welcomeViewController porque es la primera pantalla de la app
     func start(){
-        let viewController = factory.makeWelcomeViewController()
+        let viewController = factory.makeWelcomeViewController{ [weak self] in
+            self?.showLogin()
+        }
         navigationController.viewControllers = [viewController]
+    }
+    
+    private func showLogin() {
+        let viewController = factory.makeLoginViewController{
+            [weak self] in
+        }
+        navigationController.pushViewController(viewController, animated: true)
     }
     
     //Si qusieramos agregar la navegación a otra pantalla, primero debemos definir el
@@ -29,7 +38,8 @@ final class AppCoordinator {
 }
 
 protocol ViewControllerFactory {
-    func makeWelcomeViewController() -> UIViewController
+    func makeWelcomeViewController(onShowLogin: @escaping () -> Void) -> UIViewController
+    func makeLoginViewController(onLoginSuccess: @escaping () -> Void) -> UIViewController
     //Aquí irían:
     //function makeLoginViewController
     //function makeOtrasPantallasViewController
@@ -40,7 +50,13 @@ protocol ViewControllerFactory {
 }
 
 final class AppDIContainer: ViewControllerFactory {
-    func makeWelcomeViewController() -> UIViewController {
-        WelcomeViewController()
+    func makeWelcomeViewController(onShowLogin: @escaping () -> Void) -> UIViewController {
+        let presenter = WelcomePresenter(onShowLogin: onShowLogin)
+        return WelcomeViewController(presenter: presenter)
+    }
+    
+    func makeLoginViewController(onLoginSuccess: @escaping () -> Void) -> UIViewController {
+        let presenter = LoginPresenter(onLoginSuccess: onLoginSuccess)
+        return LoginViewController(presenter: presenter)
     }
 }
