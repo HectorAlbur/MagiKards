@@ -8,6 +8,13 @@
 import UIKit
 
 class LoginViewController: UIViewController {
+    
+    @IBOutlet weak var emailTextField: UITextField!
+    
+    @IBOutlet weak var passwordTextField: UITextField!
+    
+    @IBOutlet weak var loginButton: UIButton!
+    
     private let presenter: LoginPresenter
     
     init(presenter: LoginPresenter) {
@@ -25,4 +32,6 @@ class LoginViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+    @IBAction func requestLogin(_ sender: UIButton) {
+    }
 }
