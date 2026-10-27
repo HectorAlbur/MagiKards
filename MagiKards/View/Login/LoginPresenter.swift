@@ -11,7 +11,8 @@ protocol LoginView: AnyObject{
     //Todo lo que quiera que haga el login debe ir aquí o no podrá hacerlo
     func showEmailError(message: String?)
     func showPasswordError(message: String?)
-    func setLoginButtonEnable(_ isEnable: Bool)
+    func setLoginButtonEnabled(_ isEnabled: Bool)
+    
 }
 
 final class LoginPresenter {
@@ -19,8 +20,7 @@ final class LoginPresenter {
     private let onLoginSuccess: () -> Void
     private let validator: LoginValidatorProtocol
     
-    init(onLoginSuccess: @escaping () -> Void,
-         validator: LoginValidatorProtocol) {
+    init(onLoginSuccess: @escaping () -> Void, validator: LoginValidatorProtocol) {
         self.onLoginSuccess = onLoginSuccess
         self.validator = validator
     }
@@ -33,8 +33,9 @@ final class LoginPresenter {
         view?.showPasswordError(message: validator.validatePassword(password)?.message)
     }
     
-    func fieldDidChange(email: String, password: String) {
+    func fieldsDidChange(email: String, password: String){
         let isFormValid = validator.validateEmail(email) == nil && validator.validatePassword(password) == nil
-        view?.setLoginButtonEnable(isFormValid)
+        view?.setLoginButtonEnabled(isFormValid)
     }
+    
 }

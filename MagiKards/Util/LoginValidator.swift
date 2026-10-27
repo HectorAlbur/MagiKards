@@ -7,10 +7,10 @@
 
 import Foundation
 
-enum ValidationError: Equatable{
+enum ValidationError: Equatable {
     case empty
     case invalidFormat
-    case tooShort(min: Int )
+    case tooShort (min: Int)
     
     var message: String {
         switch self {
@@ -22,10 +22,11 @@ enum ValidationError: Equatable{
             return "Debe tener al menos \(min) caracteres"
         }
     }
+    
 }
 
 protocol LoginValidatorProtocol {
-    func validateEmail(_ email: String)  -> ValidationError?
+    func validateEmail(_ email: String) -> ValidationError?
     func validatePassword(_ password: String) -> ValidationError?
 }
 
@@ -33,18 +34,26 @@ struct LoginValidator: LoginValidatorProtocol {
     private let minPasswordLength: Int = 8
     
     func validateEmail(_ email: String) -> ValidationError? {
-        let trimmed = email.trimmingCharacters(in: .whitespaces)
-        guard !trimmed.isEmpty else {return .empty}
+        let trimmed = email.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !trimmed.isEmpty else {
+            return .empty
+        }
         
         let pattern = #"^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$"#
-        let isValid = trimmed.ranges(of: pattern, options: .regularExpression) != nil
+        let isValid = trimmed.range(of: pattern, options: .regularExpression) != nil
         return isValid ? nil : .invalidFormat
     }
     
     func validatePassword(_ password: String) -> ValidationError? {
-        let trimmed = password.trimmingCharacters(in: .whitespaces)
-        guard !trimmed.isEmpty else {return .empty}
-        guard trimmed.count >= minPasswordLength else {return .tooShort(min: minPasswordLength)}
+        let trimmedPassword = password.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !trimmedPassword.isEmpty else {
+            return .empty
+        }
+        
+        guard trimmedPassword.count >= minPasswordLength else {
+            return .tooShort(min: minPasswordLength)
+        }
+        
         return nil
     }
 }
