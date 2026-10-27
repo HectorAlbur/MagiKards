@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		A2FDAB3A3090ECB900721FE8 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = A2FDAB393090ECB900721FE8 /* FirebaseAuth */; };
+		A2FDAB3C3090ECB900721FE8 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = A2FDAB3B3090ECB900721FE8 /* FirebaseFirestore */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		A270B7AD30656B6300AEB43D /* MagiKards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MagiKards.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -36,6 +41,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2FDAB3A3090ECB900721FE8 /* FirebaseAuth in Frameworks */,
+				A2FDAB3C3090ECB900721FE8 /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +85,8 @@
 			);
 			name = MagiKards;
 			packageProductDependencies = (
+				A2FDAB393090ECB900721FE8 /* FirebaseAuth */,
+				A2FDAB3B3090ECB900721FE8 /* FirebaseFirestore */,
 			);
 			productName = MagiKards;
 			productReference = A270B7AD30656B6300AEB43D /* MagiKards.app */;
@@ -107,6 +116,9 @@
 			);
 			mainGroup = A270B7A430656B6300AEB43D;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				A2FDAB383090ECB900721FE8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = A270B7AE30656B6300AEB43D /* Products */;
 			projectDirPath = "";
@@ -341,6 +353,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A2FDAB383090ECB900721FE8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 13.1.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A2FDAB393090ECB900721FE8 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A2FDAB383090ECB900721FE8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		A2FDAB3B3090ECB900721FE8 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A2FDAB383090ECB900721FE8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A270B7A530656B6300AEB43D /* Project object */;
 }
