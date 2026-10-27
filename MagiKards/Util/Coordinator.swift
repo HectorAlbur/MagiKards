@@ -40,6 +40,8 @@ final class AppCoordinator {
 protocol ViewControllerFactory {
     func makeWelcomeViewController(onShowLogin: @escaping () -> Void) -> UIViewController
     func makeLoginViewController(onLoginSuccess: @escaping () -> Void) -> UIViewController
+    func makePersonalInfoViewController(onSaveSuccess: @escaping () -> Void) -> UIViewController
+    
     //Aquí irían:
     //function makeLoginViewController
     //function makeOtrasPantallasViewController
@@ -59,4 +61,11 @@ final class AppDIContainer: ViewControllerFactory {
         let presenter = LoginPresenter(onLoginSuccess: onLoginSuccess)
         return LoginViewController(presenter: presenter)
     }
+    
+    func makePersonalInfoViewController(onSaveSuccess: @escaping () -> Void) -> UIViewController {
+        let presenter = PersonalInfoPresenter(onSaveSuccess: onSaveSuccess)
+        return PersonalInfoViewController(presenter: presenter)
+    }
+    
+    
 }
