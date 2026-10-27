@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A2FDAB3A3090ECB900721FE8 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = A2FDAB393090ECB900721FE8 /* FirebaseAuth */; };
+		A2FDAB3C3090ECB900721FE8 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = A2FDAB3B3090ECB900721FE8 /* FirebaseFirestore */; };
 		A2A2A3F53090E6D900E8BEF6 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = A2A2A3F43090E6D900E8BEF6 /* Lottie */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +42,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2FDAB3A3090ECB900721FE8 /* FirebaseAuth in Frameworks */,
+				A2FDAB3C3090ECB900721FE8 /* FirebaseFirestore in Frameworks */,
 				A2A2A3F53090E6D900E8BEF6 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -83,6 +87,8 @@
 			);
 			name = MagiKards;
 			packageProductDependencies = (
+				A2FDAB393090ECB900721FE8 /* FirebaseAuth */,
+				A2FDAB3B3090ECB900721FE8 /* FirebaseFirestore */,
 				A2A2A3F43090E6D900E8BEF6 /* Lottie */,
 			);
 			productName = MagiKards;
@@ -114,6 +120,7 @@
 			mainGroup = A270B7A430656B6300AEB43D;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
+				A2FDAB383090ECB900721FE8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				A2A2A3F33090E6D900E8BEF6 /* XCRemoteSwiftPackageReference "lottie-spm" */,
 			);
 			preferredProjectObjectVersion = 77;
@@ -352,6 +359,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		A2FDAB383090ECB900721FE8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 13.1.1;
 		A2A2A3F33090E6D900E8BEF6 /* XCRemoteSwiftPackageReference "lottie-spm" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/airbnb/lottie-spm.git";
@@ -363,6 +376,15 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		A2FDAB393090ECB900721FE8 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A2FDAB383090ECB900721FE8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		A2FDAB3B3090ECB900721FE8 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A2FDAB383090ECB900721FE8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
 		A2A2A3F43090E6D900E8BEF6 /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = A2A2A3F33090E6D900E8BEF6 /* XCRemoteSwiftPackageReference "lottie-spm" */;
