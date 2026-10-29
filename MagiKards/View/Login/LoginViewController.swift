@@ -34,4 +34,24 @@ class LoginViewController: UIViewController {
 
     @IBAction func requestLogin(_ sender: UIButton) {
     }
+
+}
+
+extension LoginViewController: LoginView {
+    func setLoginButtonEnabled(_ isEnabled: Bool) {
+        loginButton.isEnabled = isEnabled
+    }
+    
+    func manageLoader(isLoading: Bool) {
+        isLoading ? showLoader() : hideLoader()
+    }
+    
+    func showEmailError(message: String?) {
+         
+     }
+     
+     func showPasswordError(message: String?) {
+         
+         
+     }
 }

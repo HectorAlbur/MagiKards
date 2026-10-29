@@ -58,8 +58,10 @@ final class AppDIContainer: ViewControllerFactory {
     }
     
     func makeLoginViewController(onLoginSuccess: @escaping () -> Void) -> UIViewController {
-        let presenter = LoginPresenter(onLoginSuccess: onLoginSuccess)
-        return LoginViewController(presenter: presenter)
+        let presenter = LoginPresenter(onLoginSuccess: onLoginSuccess, validator: LoginValidator())
+        let viewController = LoginViewController(presenter: presenter)
+        presenter.view = viewController
+        return viewController
     }
     
     func makePersonalInfoViewController(onSaveSuccess: @escaping () -> Void) -> UIViewController {

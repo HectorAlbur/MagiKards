@@ -12,6 +12,7 @@ protocol LoginView: AnyObject{
     func showEmailError(message: String?)
     func showPasswordError(message: String?)
     func setLoginButtonEnabled(_ isEnabled: Bool)
+    func manageLoader(isLoading: Bool)
     
 }
 
@@ -36,6 +37,15 @@ final class LoginPresenter {
     func fieldsDidChange(email: String, password: String){
         let isFormValid = validator.validateEmail(email) == nil && validator.validatePassword(password) == nil
         view?.setLoginButtonEnabled(isFormValid)
+    }
+    
+    func requestLogin(){
+        view?.manageLoader(isLoading: true)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) { [weak self] in
+            
+            self?.view?.manageLoader(isLoading: false)
+            self?.onLoginSuccess()
+        }
     }
     
 }
