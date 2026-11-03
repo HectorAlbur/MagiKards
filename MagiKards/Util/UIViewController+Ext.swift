@@ -17,20 +17,25 @@ extension UIViewController {
     func showLoader() {
         guard loaderchild == nil else { return }
         
+        let host: UIViewController = navigationController ?? self
         let loader = LoaderViewController(nibName: "LoaderviewController", bundle: nil)
         
-        addChild(loader)
+        host.addChild(loader)
         loader.view.frame = view.bounds
         loader.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         loader.view.alpha = 0
-        loader.didMove(toParent: self)
+        host.view.addSubview(loader.view)
+        loader.didMove(toParent: host)
         UIView.animate(withDuration: 0.2) {
             loader.view.alpha = 1
         }
     }
     
     func hideLoader(){
-        guard let loader = loaderchild else { return }
+        let host: UIViewController = navigationController ?? self
+        guard let loader = host.children.first(where: {$0 is LoaderViewController}) else {
+            return
+        }
         
         loader.willMove(toParent: nil)
         UIView.animate(withDuration: 0.2, animations: {

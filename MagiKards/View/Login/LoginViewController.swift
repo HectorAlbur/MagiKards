@@ -33,6 +33,7 @@ class LoginViewController: UIViewController {
     }
 
     @IBAction func requestLogin(_ sender: UIButton) {
+        presenter.requestLogin(email: emailTextField.text ?? "", password: passwordTextField.text ?? "")
     }
 
 }

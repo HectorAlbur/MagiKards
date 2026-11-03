@@ -20,10 +20,12 @@ final class LoginPresenter {
     weak var view: LoginView?//weak significa que la variable es una referencia débil, o sea, la memoria asignada a esa variable puede ser eliminada cuando se considere necesario
     private let onLoginSuccess: () -> Void
     private let validator: LoginValidatorProtocol
+    private let authRepository: AuthRepositoryProtocol
     
-    init(onLoginSuccess: @escaping () -> Void, validator: LoginValidatorProtocol) {
+    init(onLoginSuccess: @escaping () -> Void, validator: LoginValidatorProtocol, authRepository: AuthRepositoryProtocol) {
         self.onLoginSuccess = onLoginSuccess
         self.validator = validator
+        self.authRepository = authRepository
     }
     
     func emailDidEndEditing(_ email: String) {
@@ -39,12 +41,19 @@ final class LoginPresenter {
         view?.setLoginButtonEnabled(isFormValid)
     }
     
-    func requestLogin(){
+    func requestLogin(email: String, password: String){
         view?.manageLoader(isLoading: true)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) { [weak self] in
-            
-            self?.view?.manageLoader(isLoading: false)
-            self?.onLoginSuccess()
+        //Op asíncrona
+        Task {@MainActor [weak self] in
+            guard let self = self else {return}
+            do{
+                let user = try await self.authRepository.signIn(email: email, password: password)
+                self.view?.manageLoader(isLoading: false)
+                self.onLoginSuccess()
+            }catch {
+                self.view?.manageLoader(isLoading: false)
+                self.view?.showPasswordError(message: error.localizedDescription)
+            }
         }
     }
     
