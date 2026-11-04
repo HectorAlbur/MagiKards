@@ -1,218 +1,209 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="24765" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_12" orientation="portrait" appearance="light"/>
-    <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24743"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
-    </dependencies>
-    <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="MagiKards" customModuleProvider="target">
-            <connections>
-                <outlet property="emailErrorLabel" destination="emailError" id="mk-0005"/>
-                <outlet property="emailTextField" destination="email" id="mk-0002"/>
-                <outlet property="loginButton" destination="login" id="mk-0004"/>
-                <outlet property="passwordErrorLabel" destination="passwordError" id="mk-0006"/>
-                <outlet property="passwordTextField" destination="password" id="mk-0003"/>
-                <outlet property="view" destination="root" id="mk-0001"/>
-            </connections>
-        </placeholder>
-        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="root">
-            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <subviews>
-                <scrollView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="scroll">
-                    <rect key="frame" x="0.0" y="118" width="393" height="666"/>
-                    <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="content">
-                            <rect key="frame" x="0.0" y="0.0" width="393" height="805.33333333333337"/>
-                            <subviews>
-                                <stackView contentMode="scaleToFill" axis="vertical" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="stack">
-                                    <rect key="frame" x="24" y="28" width="345" height="749.33333333333337"/>
-                                    <subviews>
-                                        <imageView clipsSubviews="YES" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="mk-0007" userLabel="Logo · agregar imagen aquí">
-                                            <rect key="frame" x="0.0" y="0.0" width="345" height="72"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="72" id="mk-0008"/>
-                                            </constraints>
-                                        </imageView>
-                                        <label contentMode="scaleToFill" text="MagiKards" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" translatesAutoresizingMaskIntoConstraints="NO" id="mk-0009">
-                                            <rect key="frame" x="0.0" y="90" width="345" height="45.666666666666657"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="38"/>
-                                            <color key="textColor" name="marketAccent"/>
-                                        </label>
-                                        <label contentMode="scaleToFill" text="market" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" translatesAutoresizingMaskIntoConstraints="NO" id="mk-0010">
-                                            <rect key="frame" x="0.0" y="153.66666666666669" width="345" height="18"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                            <color key="textColor" name="marketMuted"/>
-                                        </label>
-                                        <stackView contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="mk-0011">
-                                            <rect key="frame" x="0.0" y="189.66666666666669" width="345" height="77.666666666666686"/>
-                                            <subviews>
-                                                <label contentMode="scaleToFill" text="Correo electrónico" lineBreakMode="tailTruncation" numberOfLines="0" translatesAutoresizingMaskIntoConstraints="NO" id="mk-0012">
-                                                    <rect key="frame" x="0.0" y="0.0" width="345" height="15.666666666666666"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
-                                                    <color key="textColor" name="marketText"/>
-                                                </label>
-                                                <textField contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="entrenador@ejemplo.com" translatesAutoresizingMaskIntoConstraints="NO" id="email" userLabel="Correo electrónico">
-                                                    <rect key="frame" x="0.0" y="23.666666666666629" width="345" height="54"/>
-                                                    <color key="backgroundColor" name="marketSurface"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="54" id="mk-0013"/>
-                                                    </constraints>
-                                                    <color key="textColor" name="marketText"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" textContentType="emailAddress"/>
-                                                </textField>
-                                            </subviews>
-                                        </stackView>
-                                        <label hidden="YES" contentMode="scaleToFill" text="" lineBreakMode="tailTruncation" numberOfLines="0" translatesAutoresizingMaskIntoConstraints="NO" id="emailError">
-                                            <rect key="frame" x="0.0" y="276.33333333333331" width="345" height="0.0"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                            <color key="textColor" name="marketAccent"/>
-                                        </label>
-                                        <stackView contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="mk-0014">
-                                            <rect key="frame" x="0.0" y="285.33333333333331" width="345" height="77.666666666666686"/>
-                                            <subviews>
-                                                <label contentMode="scaleToFill" text="Contraseña" lineBreakMode="tailTruncation" numberOfLines="0" translatesAutoresizingMaskIntoConstraints="NO" id="mk-0015">
-                                                    <rect key="frame" x="0.0" y="0.0" width="345" height="15.666666666666666"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
-                                                    <color key="textColor" name="marketText"/>
-                                                </label>
-                                                <textField contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tu contraseña" translatesAutoresizingMaskIntoConstraints="NO" id="password" userLabel="Contraseña">
-                                                    <rect key="frame" x="0.0" y="23.666666666666686" width="345" height="54"/>
-                                                    <color key="backgroundColor" name="marketSurface"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="54" id="mk-0016"/>
-                                                    </constraints>
-                                                    <color key="textColor" name="marketText"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES" textContentType="newPassword"/>
-                                                </textField>
-                                            </subviews>
-                                        </stackView>
-                                        <label hidden="YES" contentMode="scaleToFill" text="" lineBreakMode="tailTruncation" numberOfLines="0" translatesAutoresizingMaskIntoConstraints="NO" id="passwordError">
-                                            <rect key="frame" x="0.0" y="372" width="345" height="0.0"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                            <color key="textColor" name="marketAccent"/>
-                                        </label>
-                                        <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mk-0017" userLabel="¿Olvidaste tu contraseña?">
-                                            <rect key="frame" x="0.0" y="381" width="345" height="54"/>
-                                            <color key="backgroundColor" name="marketSoft"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="54" id="mk-0018"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                            <state key="normal" title="¿Olvidaste tu contraseña?">
-                                                <color key="titleColor" name="marketAccent"/>
-                                            </state>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                    <real key="value" value="16"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
-                                        </button>
-                                        <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="login" userLabel="INICIAR SESIÓN">
-                                            <rect key="frame" x="0.0" y="453" width="345" height="54"/>
-                                            <color key="backgroundColor" name="marketAccent"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="54" id="mk-0019"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                            <state key="normal" title="INICIAR SESIÓN">
-                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </state>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                    <real key="value" value="16"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
-                                            <connections>
-                                                <action selector="requestLogin:" destination="-1" eventType="touchUpInside" id="mk-0020"/>
-                                            </connections>
-                                        </button>
-                                        <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mk-0021" userLabel="REGISTRAR NUEVO USUARIO">
-                                            <rect key="frame" x="0.0" y="525" width="345" height="54"/>
-                                            <color key="backgroundColor" name="marketSoft"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="54" id="mk-0022"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                            <state key="normal" title="REGISTRAR NUEVO USUARIO">
-                                                <color key="titleColor" name="marketAccent"/>
-                                            </state>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                    <real key="value" value="16"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
-                                        </button>
-                                        <imageView clipsSubviews="YES" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="mk-0023" userLabel="Ilustración de entrenadores · agregar imagen aquí">
-                                            <rect key="frame" x="0.0" y="597" width="345" height="120"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="120" id="mk-0024"/>
-                                            </constraints>
-                                        </imageView>
-                                        <label contentMode="scaleToFill" text="Tu próxima carta favorita te espera." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" translatesAutoresizingMaskIntoConstraints="NO" id="mk-0025">
-                                            <rect key="frame" x="0.0" y="735" width="345" height="14.333333333333371"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <color key="textColor" name="marketMuted"/>
-                                        </label>
-                                    </subviews>
-                                </stackView>
-                            </subviews>
-                            <constraints>
-                                <constraint firstItem="stack" firstAttribute="top" secondItem="content" secondAttribute="top" constant="28" id="mk-0026"/>
-                                <constraint firstAttribute="bottom" secondItem="stack" secondAttribute="bottom" constant="28" id="mk-0027"/>
-                                <constraint firstItem="stack" firstAttribute="centerX" secondItem="content" secondAttribute="centerX" id="mk-0028"/>
-                                <constraint firstItem="stack" firstAttribute="width" secondItem="content" secondAttribute="width" priority="750" constant="-48" id="mk-0029"/>
-                                <constraint firstItem="stack" firstAttribute="width" relation="lessThanOrEqual" constant="480" id="mk-0030"/>
-                                <constraint firstItem="stack" firstAttribute="width" relation="lessThanOrEqual" secondItem="content" secondAttribute="width" constant="-48" id="mk-0031"/>
-                            </constraints>
-                        </view>
-                    </subviews>
-                    <constraints>
-                        <constraint firstItem="content" firstAttribute="top" secondItem="scrollContent" secondAttribute="top" id="mk-0032"/>
-                        <constraint firstItem="content" firstAttribute="bottom" secondItem="scrollContent" secondAttribute="bottom" id="mk-0033"/>
-                        <constraint firstItem="content" firstAttribute="leading" secondItem="scrollContent" secondAttribute="leading" id="mk-0034"/>
-                        <constraint firstItem="content" firstAttribute="trailing" secondItem="scrollContent" secondAttribute="trailing" id="mk-0035"/>
-                        <constraint firstItem="content" firstAttribute="width" secondItem="scrollFrame" secondAttribute="width" id="mk-0036"/>
-                    </constraints>
-                    <viewLayoutGuide key="contentLayoutGuide" id="scrollContent"/>
-                    <viewLayoutGuide key="frameLayoutGuide" id="scrollFrame"/>
-                </scrollView>
-            </subviews>
-            <viewLayoutGuide key="safeArea" id="safe"/>
-            <color key="backgroundColor" name="marketCanvas"/>
-            <constraints>
-                <constraint firstItem="scroll" firstAttribute="top" secondItem="safe" secondAttribute="top" id="mk-0037"/>
-                <constraint firstItem="scroll" firstAttribute="bottom" secondItem="safe" secondAttribute="bottom" id="mk-0038"/>
-                <constraint firstItem="scroll" firstAttribute="leading" secondItem="safe" secondAttribute="leading" id="mk-0039"/>
-                <constraint firstItem="scroll" firstAttribute="trailing" secondItem="safe" secondAttribute="trailing" id="mk-0040"/>
-            </constraints>
-            <point key="canvasLocation" x="254" y="126"/>
-        </view>
-    </objects>
-    <resources>
-        <namedColor name="marketAccent">
-            <color red="1" green="0.0" blue="0.32941201329231262" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="marketCanvas">
-            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="marketMuted">
-            <color red="0.41960799694061279" green="0.44705900549888611" blue="0.50196099281311035" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="marketSoft">
-            <color red="1" green="0.94509798288345337" blue="0.96078401803970337" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="marketSurface">
-            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="marketText">
-            <color red="0.1450980007648468" green="0.16078400611877441" blue="0.21176500618457794" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-    </resources>
+  <device id="retina6_12" orientation="portrait" appearance="light"/>
+  <dependencies>
+    <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24743"/>
+    <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+    <capability name="Named colors" minToolsVersion="9.0"/>
+    <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+  </dependencies>
+  <objects>
+    <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="MagiKards" customModuleProvider="target">
+      <connections>
+        <outlet property="view" destination="root" id="mk-0001"/>
+        <outlet property="emailTextField" destination="email" id="mk-0002"/>
+        <outlet property="passwordTextField" destination="password" id="mk-0003"/>
+        <outlet property="loginButton" destination="login" id="mk-0004"/>
+        <outlet property="emailErrorLabel" destination="emailError" id="mk-0005"/>
+        <outlet property="passwordErrorLabel" destination="passwordError" id="mk-0006"/>
+      </connections>
+    </placeholder>
+    <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+    <view id="root" contentMode="scaleToFill">
+      <rect key="frame" x="0" y="0" width="393" height="852"/>
+      <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+      <subviews>
+        <scrollView id="scroll" clipsSubviews="YES" alwaysBounceVertical="YES" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO">
+          <rect key="frame" x="0" y="59" width="393" height="759"/><subviews>
+            <view id="content" translatesAutoresizingMaskIntoConstraints="NO">
+              <rect key="frame" x="0" y="0" width="393" height="860.96"/><subviews>
+                <stackView id="stack" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO">
+                  <rect key="frame" x="24" y="28" width="345" height="804.96"/><subviews>
+                    <label id="mk-0007" text="M A G I K A R D S   /   MARKET" numberOfLines="0" textAlignment="left" translatesAutoresizingMaskIntoConstraints="NO" hidden="NO" opaque="NO">
+                      <rect key="frame" x="0" y="0" width="345" height="15.18"/><fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="11"/>
+                      <color key="textColor" name="marketAccent"/>
+                      <color key="backgroundColor" white="0" alpha="0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </label>
+                    <label id="mk-0008" text="Tu colección.&#10;Tu próxima historia." numberOfLines="0" textAlignment="left" translatesAutoresizingMaskIntoConstraints="NO" hidden="NO" opaque="NO">
+                      <rect key="frame" x="0" y="31.18" width="345" height="140.76"/><fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="34"/>
+                      <color key="textColor" name="marketText"/>
+                      <color key="backgroundColor" white="0" alpha="0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </label>
+                    <label id="mk-0009" text="Un lugar para quienes ven algo especial en cada carta." numberOfLines="0" textAlignment="left" translatesAutoresizingMaskIntoConstraints="NO" hidden="NO" opaque="NO">
+                      <rect key="frame" x="0" y="187.94" width="345" height="41.4"/><fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
+                      <color key="textColor" name="marketMuted"/>
+                      <color key="backgroundColor" white="0" alpha="0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </label>
+                    <imageView id="mk-0010" userLabel="Cartas apiladas · agregar ilustración aquí" contentMode="scaleAspectFit" clipsSubviews="YES" translatesAutoresizingMaskIntoConstraints="NO">
+                      <rect key="frame" x="0" y="245.34" width="345" height="90.0"/><constraints>
+                        <constraint id="mk-0011" firstAttribute="height" constant="90"/>
+                      </constraints>
+                    <color key="backgroundColor" name="marketSoft"/><userDefinedRuntimeAttributes><userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius"><real key="value" value="22"/></userDefinedRuntimeAttribute></userDefinedRuntimeAttributes></imageView>
+                    <stackView id="mk-0012" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO">
+                      <rect key="frame" x="0" y="351.34" width="345" height="81.94"/><subviews>
+                        <label id="mk-0013" text="CORREO ELECTRÓNICO" numberOfLines="0" textAlignment="left" translatesAutoresizingMaskIntoConstraints="NO" hidden="NO" opaque="NO">
+                          <rect key="frame" x="0" y="0" width="345" height="17.94"/><fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="13"/>
+                          <color key="textColor" name="marketText"/>
+                          <color key="backgroundColor" white="0" alpha="0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </label>
+                        <view id="layout-9001" translatesAutoresizingMaskIntoConstraints="NO" userLabel="CORREO ELECTRÓNICO · campo"><rect key="frame" x="0" y="25.94" width="345" height="56"/><subviews><textField id="email" userLabel="CORREO ELECTRÓNICO" placeholder="entrenador@ejemplo.com" borderStyle="none" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" opaque="NO">
+                          <rect key="frame" x="16" y="0" width="313" height="56"/><fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
+                          <color key="textColor" name="marketText"/>
+                          <textInputTraits key="textInputTraits" autocorrectionType="no" autocapitalizationType="none" keyboardType="emailAddress" textContentType="emailAddress"/>
+                        <color key="backgroundColor" white="0" alpha="0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/></textField>
+                      </subviews><color key="backgroundColor" name="marketSurface"/><userDefinedRuntimeAttributes><userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius"><real key="value" value="14"/></userDefinedRuntimeAttribute></userDefinedRuntimeAttributes><constraints><constraint firstAttribute="height" constant="56" id="layout-9002"/><constraint firstItem="email" firstAttribute="leading" secondItem="layout-9001" secondAttribute="leading" constant="16" id="layout-9003"/><constraint firstItem="email" firstAttribute="trailing" secondItem="layout-9001" secondAttribute="trailing" constant="-16" id="layout-9004"/><constraint firstItem="email" firstAttribute="top" secondItem="layout-9001" secondAttribute="top" constant="0" id="layout-9005"/><constraint firstItem="email" firstAttribute="bottom" secondItem="layout-9001" secondAttribute="bottom" constant="0" id="layout-9006"/></constraints></view></subviews>
+                    </stackView>
+                    <label id="emailError" text="" numberOfLines="0" textAlignment="left" translatesAutoresizingMaskIntoConstraints="NO" hidden="YES" opaque="NO">
+                      <rect key="frame" x="0" y="449.28" width="345" height="0"/><fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="12"/>
+                      <color key="textColor" name="marketGold"/>
+                      <color key="backgroundColor" white="0" alpha="0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </label>
+                    <stackView id="mk-0015" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO">
+                      <rect key="frame" x="0" y="449.28" width="345" height="81.94"/><subviews>
+                        <label id="mk-0016" text="CONTRASEÑA" numberOfLines="0" textAlignment="left" translatesAutoresizingMaskIntoConstraints="NO" hidden="NO" opaque="NO">
+                          <rect key="frame" x="0" y="0" width="345" height="17.94"/><fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="13"/>
+                          <color key="textColor" name="marketText"/>
+                          <color key="backgroundColor" white="0" alpha="0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </label>
+                        <view id="layout-9007" translatesAutoresizingMaskIntoConstraints="NO" userLabel="CONTRASEÑA · campo"><rect key="frame" x="0" y="25.94" width="345" height="56"/><subviews><textField id="password" userLabel="CONTRASEÑA" placeholder="Tu contraseña" borderStyle="none" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" opaque="NO">
+                          <rect key="frame" x="16" y="0" width="313" height="56"/><fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
+                          <color key="textColor" name="marketText"/>
+                          <textInputTraits key="textInputTraits" autocorrectionType="no" autocapitalizationType="none" secureTextEntry="YES" textContentType="newPassword"/>
+                        <color key="backgroundColor" white="0" alpha="0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/></textField>
+                      </subviews><color key="backgroundColor" name="marketSurface"/><userDefinedRuntimeAttributes><userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius"><real key="value" value="14"/></userDefinedRuntimeAttribute></userDefinedRuntimeAttributes><constraints><constraint firstAttribute="height" constant="56" id="layout-9008"/><constraint firstItem="password" firstAttribute="leading" secondItem="layout-9007" secondAttribute="leading" constant="16" id="layout-9009"/><constraint firstItem="password" firstAttribute="trailing" secondItem="layout-9007" secondAttribute="trailing" constant="-16" id="layout-9010"/><constraint firstItem="password" firstAttribute="top" secondItem="layout-9007" secondAttribute="top" constant="0" id="layout-9011"/><constraint firstItem="password" firstAttribute="bottom" secondItem="layout-9007" secondAttribute="bottom" constant="0" id="layout-9012"/></constraints></view></subviews>
+                    </stackView>
+                    <label id="passwordError" text="" numberOfLines="0" textAlignment="left" translatesAutoresizingMaskIntoConstraints="NO" hidden="YES" opaque="NO">
+                      <rect key="frame" x="0" y="547.22" width="345" height="0"/><fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="12"/>
+                      <color key="textColor" name="marketGold"/>
+                      <color key="backgroundColor" white="0" alpha="0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </label>
+                    <button id="mk-0018" userLabel="Recuperar contraseña" buttonType="system" translatesAutoresizingMaskIntoConstraints="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center">
+                      <rect key="frame" x="0" y="547.22" width="345" height="54.0"/><constraints>
+                        <constraint id="mk-0019" firstAttribute="height" constant="54"/>
+                      </constraints>
+                      <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                          <real key="value" value="16"/>
+                        </userDefinedRuntimeAttribute>
+                      </userDefinedRuntimeAttributes>
+                      <color key="backgroundColor" name="marketSoft"/>
+                      <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="15"/>
+                      <state key="normal" title="Recuperar contraseña">
+                        <color key="titleColor" name="marketAccent"/>
+                      </state>
+                    </button>
+                    <button id="login" userLabel="Entrar a mi colección" buttonType="system" translatesAutoresizingMaskIntoConstraints="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center">
+                      <rect key="frame" x="0" y="617.22" width="345" height="54.0"/><constraints>
+                        <constraint id="mk-0020" firstAttribute="height" constant="54"/>
+                      </constraints>
+                      <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                          <real key="value" value="16"/>
+                        </userDefinedRuntimeAttribute>
+                      </userDefinedRuntimeAttributes>
+                      <color key="backgroundColor" name="marketAccent"/>
+                      <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="15"/>
+                      <state key="normal" title="Entrar a mi colección">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                      </state>
+                      <connections>
+                        <action selector="requestLogin:" destination="-1" eventType="touchUpInside" id="mk-0021"/>
+                      </connections>
+                    </button>
+                    <label id="mk-0022" text="¿Es tu primera aventura?" numberOfLines="0" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" hidden="NO" opaque="NO">
+                      <rect key="frame" x="0" y="687.22" width="345" height="17.94"/><fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="13"/>
+                      <color key="textColor" name="marketMuted"/>
+                      <color key="backgroundColor" white="0" alpha="0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </label>
+                    <button id="mk-0023" userLabel="Crear una cuenta" buttonType="system" translatesAutoresizingMaskIntoConstraints="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center">
+                      <rect key="frame" x="0" y="721.16" width="345" height="54.0"/><constraints>
+                        <constraint id="mk-0024" firstAttribute="height" constant="54"/>
+                      </constraints>
+                      <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                          <real key="value" value="16"/>
+                        </userDefinedRuntimeAttribute>
+                      </userDefinedRuntimeAttributes>
+                      <color key="backgroundColor" name="marketSoft"/>
+                      <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="15"/>
+                      <state key="normal" title="Crear una cuenta">
+                        <color key="titleColor" name="marketAccent"/>
+                      </state>
+                    </button>
+                    <label id="mk-0025" text="DESCUBRE  ·  COLECCIONA  ·  CONECTA" numberOfLines="0" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" hidden="NO" opaque="NO">
+                      <rect key="frame" x="0" y="791.16" width="345" height="13.8"/><fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="10"/>
+                      <color key="textColor" name="marketAccent"/>
+                      <color key="backgroundColor" white="0" alpha="0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </label>
+                  </subviews>
+                </stackView>
+              </subviews>
+              <constraints>
+                <constraint id="mk-0026" firstItem="stack" firstAttribute="top" secondItem="content" secondAttribute="top" constant="28"/>
+                <constraint id="mk-0027" firstItem="content" firstAttribute="bottom" secondItem="stack" secondAttribute="bottom" constant="28"/>
+                <constraint id="mk-0028" firstItem="stack" firstAttribute="centerX" secondItem="content" secondAttribute="centerX"/>
+                <constraint id="mk-0029" firstItem="stack" firstAttribute="width" secondItem="content" secondAttribute="width" constant="-48" priority="750"/>
+                <constraint id="mk-0030" firstItem="stack" firstAttribute="width" relation="lessThanOrEqual" constant="480"/>
+                <constraint id="mk-0031" firstItem="stack" firstAttribute="width" relation="lessThanOrEqual" secondItem="content" secondAttribute="width" constant="-48"/>
+              </constraints>
+              <color key="backgroundColor" name="marketCanvas"/>
+            </view>
+          </subviews>
+          <constraints>
+            <constraint id="mk-0032" firstItem="content" firstAttribute="top" secondItem="scrollContent" secondAttribute="top"/>
+            <constraint id="mk-0033" firstItem="content" firstAttribute="bottom" secondItem="scrollContent" secondAttribute="bottom"/>
+            <constraint id="mk-0034" firstItem="content" firstAttribute="leading" secondItem="scrollContent" secondAttribute="leading"/>
+            <constraint id="mk-0035" firstItem="content" firstAttribute="trailing" secondItem="scrollContent" secondAttribute="trailing"/>
+            <constraint id="mk-0036" firstItem="content" firstAttribute="width" secondItem="scrollFrame" secondAttribute="width"/>
+          </constraints>
+          <viewLayoutGuide key="contentLayoutGuide" id="scrollContent"/>
+          <viewLayoutGuide key="frameLayoutGuide" id="scrollFrame"/>
+        </scrollView>
+      </subviews>
+      <viewLayoutGuide key="safeArea" id="safe"/>
+      <color key="backgroundColor" name="marketCanvas"/>
+      <constraints>
+        <constraint id="mk-0037" firstItem="scroll" firstAttribute="top" secondItem="safe" secondAttribute="top"/>
+        <constraint id="mk-0038" firstItem="scroll" firstAttribute="bottom" secondItem="safe" secondAttribute="bottom"/>
+        <constraint id="mk-0039" firstItem="scroll" firstAttribute="leading" secondItem="safe" secondAttribute="leading"/>
+        <constraint id="mk-0040" firstItem="scroll" firstAttribute="trailing" secondItem="safe" secondAttribute="trailing"/>
+      </constraints>
+    </view>
+  </objects>
+  <resources>
+    <namedColor name="marketAccent">
+      <color red="0.141176" green="0.356863" blue="0.376471" alpha="1.000" colorSpace="custom" customColorSpace="sRGB"/>
+    </namedColor>
+    <namedColor name="marketText">
+      <color red="0.090196" green="0.172549" blue="0.262745" alpha="1.000" colorSpace="custom" customColorSpace="sRGB"/>
+    </namedColor>
+    <namedColor name="marketMuted">
+      <color red="0.407843" green="0.458824" blue="0.501961" alpha="1.000" colorSpace="custom" customColorSpace="sRGB"/>
+    </namedColor>
+    <namedColor name="marketSurface">
+      <color red="1.000000" green="1.000000" blue="1.000000" alpha="1.000" colorSpace="custom" customColorSpace="sRGB"/>
+    </namedColor>
+    <namedColor name="marketCanvas">
+      <color red="0.972549" green="0.960784" blue="0.933333" alpha="1.000" colorSpace="custom" customColorSpace="sRGB"/>
+    </namedColor>
+    <namedColor name="marketBorder">
+      <color red="0.874510" green="0.901961" blue="0.886275" alpha="1.000" colorSpace="custom" customColorSpace="sRGB"/>
+    </namedColor>
+    <namedColor name="marketSoft">
+      <color red="0.905882" green="0.937255" blue="0.921569" alpha="1.000" colorSpace="custom" customColorSpace="sRGB"/>
+    </namedColor>
+    <namedColor name="marketGold">
+      <color red="0.705882" green="0.321569" blue="0.239216" alpha="1.000" colorSpace="custom" customColorSpace="sRGB"/>
+    </namedColor>
+  </resources>
 </document>
