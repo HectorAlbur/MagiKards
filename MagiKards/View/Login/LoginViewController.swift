@@ -15,6 +15,9 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var loginButton: UIButton!
     
+    @IBOutlet weak var passwordErrorLabel: UILabel!
+    @IBOutlet weak var emailErrorLabel: UILabel!
+    
     private let presenter: LoginPresenter
     
     init(presenter: LoginPresenter) {
@@ -28,8 +31,22 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setupView()
         // Do any additional setup after loading the view.
+    }
+    
+    func setupView() {
+            emailTextField.delegate = self
+            passwordTextField.delegate = self
+
+            emailTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+            passwordTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+
+    }
+    
+    @objc private func textDidChange() {
+        presenter.fieldsDidChange(email: emailTextField.text ?? "",
+                                  password: passwordTextField.text ?? "")
     }
 
     @IBAction func requestLogin(_ sender: UIButton) {
@@ -39,6 +56,16 @@ class LoginViewController: UIViewController {
 }
 
 extension LoginViewController: LoginView {
+    func showEmailError(message: String?) {
+        emailErrorLabel.text = message
+        emailErrorLabel.isHidden = message == nil
+    }
+    
+    func showPasswordError(message: String?) {
+        passwordErrorLabel.text = message
+        passwordErrorLabel.isHidden = message == nil
+    }
+    
     func setLoginButtonEnabled(_ isEnabled: Bool) {
         loginButton.isEnabled = isEnabled
     }
@@ -46,13 +73,14 @@ extension LoginViewController: LoginView {
     func manageLoader(isLoading: Bool) {
         isLoading ? showLoader() : hideLoader()
     }
-    
-    func showEmailError(message: String?) {
-         
-     }
-     
-     func showPasswordError(message: String?) {
-         
-         
-     }
+}
+
+extension LoginViewController: UITextFieldDelegate {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField == emailTextField {
+            presenter.emailDidEndEditing(textField.text ?? "")
+        } else {
+            presenter.passwordDidEndEditing(textField.text ?? "")
+        }
+    }
 }
