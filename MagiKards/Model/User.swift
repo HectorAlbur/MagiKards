@@ -7,7 +7,9 @@
 
 import Foundation
 
+//Modelo de usuario de la app (dominio)
 struct User: Equatable {
     let id: String
     let email: String
+    let name: String
 }
