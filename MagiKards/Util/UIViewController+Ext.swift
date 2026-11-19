@@ -8,20 +8,20 @@
 import UIKit
 
 extension UIViewController {
-    private var loaderchild: LoaderViewController? {
-        children.first { $0 is LoaderViewController } as?
-        LoaderViewController
-        
-    }
-    
-    func showLoader() {
-        guard loaderchild == nil else { return }
-        
+    //Busca si ya hay un loader agregado en el contenedor (navigationController o la vista)
+    private var loaderChild: LoaderViewController? {
         let host: UIViewController = navigationController ?? self
-        let loader = LoaderViewController(nibName: "LoaderviewController", bundle: nil)
-        
+        return host.children.first { $0 is LoaderViewController } as? LoaderViewController
+    }
+
+    func showLoader() {
+        guard loaderChild == nil else { return }
+
+        let host: UIViewController = navigationController ?? self
+        let loader = LoaderViewController(nibName: "LoaderViewController", bundle: nil)
+
         host.addChild(loader)
-        loader.view.frame = view.bounds
+        loader.view.frame = host.view.bounds
         loader.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         loader.view.alpha = 0
         host.view.addSubview(loader.view)
@@ -30,20 +30,23 @@ extension UIViewController {
             loader.view.alpha = 1
         }
     }
-    
-    func hideLoader(){
-        let host: UIViewController = navigationController ?? self
-        guard let loader = host.children.first(where: {$0 is LoaderViewController}) else {
-            return
-        }
-        
+
+    func hideLoader() {
+        guard let loader = loaderChild else { return }
+
         loader.willMove(toParent: nil)
         UIView.animate(withDuration: 0.2, animations: {
             loader.view.alpha = 0
         }, completion: { _ in
             loader.view.removeFromSuperview()
             loader.removeFromParent()
-            
         })
+    }
+
+    //Alerta sencilla para mostrar mensajes al usuario
+    func showAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Aceptar", style: .default))
+        present(alert, animated: true)
     }
 }
