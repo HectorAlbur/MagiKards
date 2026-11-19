@@ -11,15 +11,18 @@ enum ValidationError: Equatable {
     case empty
     case invalidFormat
     case tooShort (min: Int)
+    case passwordMismatch
     
     var message: String {
         switch self {
         case .empty:
-            return "Campo vacio"
+            return "Este campo es obligatorio"
         case .invalidFormat:
-            return "Formato invalido"
+            return "El formato no es válido"
         case .tooShort(min: let min):
             return "Debe tener al menos \(min) caracteres"
+        case .passwordMismatch:
+            return "Las contraseñas no coinciden"
         }
     }
     
