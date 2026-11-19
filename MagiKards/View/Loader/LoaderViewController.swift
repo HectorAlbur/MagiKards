@@ -12,19 +12,20 @@ class LoaderViewController: UIViewController {
 
     @IBOutlet weak var animationContainer: UIView!
     private var animationView: LottieAnimationView?
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setupView()
     }
-    
-    private func setupview() {
+
+    //Agrega la animación de Lottie (loader.json) dentro del contenedor
+    private func setupView() {
         let animation = LottieAnimationView(name: "loader")
         animation.loopMode = .loop
         animation.contentMode = .scaleAspectFit
         animation.translatesAutoresizingMaskIntoConstraints = false
         animationContainer.addSubview(animation)
-        
+
         NSLayoutConstraint.activate([
             animation.topAnchor.constraint(equalTo: animationContainer.topAnchor),
             animation.bottomAnchor.constraint(equalTo: animationContainer.bottomAnchor),
@@ -33,22 +34,9 @@ class LoaderViewController: UIViewController {
         ])
         animationView = animation
         animationView?.play()
-  
     }
-    
+
     deinit {
         animationView?.stop()
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
