@@ -78,7 +78,7 @@
                         <view id="layout-9007" translatesAutoresizingMaskIntoConstraints="NO" userLabel="CONTRASEÑA · campo"><rect key="frame" x="0" y="25.94" width="345" height="56"/><subviews><textField id="password" userLabel="CONTRASEÑA" placeholder="Tu contraseña" borderStyle="none" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" opaque="NO">
                           <rect key="frame" x="16" y="0" width="313" height="56"/><fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
                           <color key="textColor" name="marketText"/>
-                          <textInputTraits key="textInputTraits" autocorrectionType="no" autocapitalizationType="none" secureTextEntry="YES" textContentType="newPassword"/>
+                          <textInputTraits key="textInputTraits" autocorrectionType="no" autocapitalizationType="none" secureTextEntry="YES" textContentType="password"/>
                         <color key="backgroundColor" white="0" alpha="0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/></textField>
                       </subviews><color key="backgroundColor" name="marketSurface"/><userDefinedRuntimeAttributes><userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius"><real key="value" value="14"/></userDefinedRuntimeAttribute></userDefinedRuntimeAttributes><constraints><constraint firstAttribute="height" constant="56" id="layout-9008"/><constraint firstItem="password" firstAttribute="leading" secondItem="layout-9007" secondAttribute="leading" constant="16" id="layout-9009"/><constraint firstItem="password" firstAttribute="trailing" secondItem="layout-9007" secondAttribute="trailing" constant="-16" id="layout-9010"/><constraint firstItem="password" firstAttribute="top" secondItem="layout-9007" secondAttribute="top" constant="0" id="layout-9011"/><constraint firstItem="password" firstAttribute="bottom" secondItem="layout-9007" secondAttribute="bottom" constant="0" id="layout-9012"/></constraints></view></subviews>
                     </stackView>
@@ -139,6 +139,9 @@
                       <state key="normal" title="Crear una cuenta">
                         <color key="titleColor" name="marketAccent"/>
                       </state>
+                      <connections>
+                        <action selector="showSignUp:" destination="-1" eventType="touchUpInside" id="act-L01"/>
+                      </connections>
                     </button>
                     <label id="mk-0025" text="DESCUBRE  ·  COLECCIONA  ·  CONECTA" numberOfLines="0" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" hidden="NO" opaque="NO">
                       <rect key="frame" x="0" y="791.16" width="345" height="13.8"/><fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="10"/>
