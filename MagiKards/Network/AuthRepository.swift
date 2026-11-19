@@ -11,7 +11,7 @@ import FirebaseAuth
 protocol AuthRepositoryProtocol {
     var currentUser: User? { get }
     func signIn(email: String, password: String) async throws -> User
-    func signUp(email: String, password: String) async throws -> User
+    func signUp(name: String, email: String, password: String) async throws -> User
     func signOut() throws
 }
 
@@ -26,6 +26,7 @@ final class FirebaseAuthRepository: AuthRepositoryProtocol {
         auth.currentUser.map(Self.mapUser)
     }
 
+    //Inicio de sesión con correo y contraseña
     func signIn(email: String, password: String) async throws -> User {
         do {
             let result = try await auth.signIn(withEmail: email, password: password)
@@ -35,10 +36,16 @@ final class FirebaseAuthRepository: AuthRepositoryProtocol {
         }
     }
 
-    func signUp(email: String, password: String) async throws -> User {
+    //Registro: crea el usuario en Firebase y le guarda el nombre de entrenador
+    func signUp(name: String, email: String, password: String) async throws -> User {
         do {
             let result = try await auth.createUser(withEmail: email, password: password)
-            return User(id: result.user.uid, email: email)
+
+            let changeRequest = result.user.createProfileChangeRequest()
+            changeRequest.displayName = name
+            try? await changeRequest.commitChanges()
+
+            return User(id: result.user.uid, email: email, name: name)
         } catch {
             throw Self.mapError(error)
         }
@@ -50,12 +57,13 @@ final class FirebaseAuthRepository: AuthRepositoryProtocol {
 
     // MARK: - Mapeos Firebase → dominio
 
-    // `FirebaseAuth.User` es el de Firebase; `User` es el tuyo.
+    // `FirebaseAuth.User` es el de Firebase; `User` es el nuestro.
     private static func mapUser(_ fbUser: FirebaseAuth.User) -> User {
         let email = fbUser.email ?? ""
         let fallbackName = email.components(separatedBy: "@").first ?? ""
         return User(id: fbUser.uid,
-                    email: email)
+                    email: email,
+                    name: fbUser.displayName ?? fallbackName)
     }
 
     private static func mapError(_ error: Error) -> AuthError {
@@ -64,10 +72,12 @@ final class FirebaseAuthRepository: AuthRepositoryProtocol {
         }
 
         switch code.code {
-        case .wrongPassword, .userNotFound, .invalidCredential:
+        case .wrongPassword, .userNotFound, .invalidCredential, .invalidEmail:
             return .invalidCredentials
         case .emailAlreadyInUse:
             return .emailAlreadyInUse
+        case .weakPassword:
+            return .weakPassword
         case .networkError:
             return .network
         default:
